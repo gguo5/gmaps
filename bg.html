@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+        <link href="css/travel_map.css" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />	
+        <link href='http://fonts.googleapis.com/css?family=Share:700' rel='stylesheet' type='text/css'/>
+
+        <script language="Javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
+        <script language="Javascript" type="text/javascript" src="js/countdown.js"></script> 	
+        <script language="javascript" type="text/javascript"> 
+            var map;
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(58, 16),
+                    zoom: 5,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("map_canvas"),
+                mapOptions);
+                
+                 $.getJSON("foo.json", function(results) {
+                    for (var i = 0; i < results.features.length; i++) {
+                        var place = results.features[i];
+                        var coords = place.coordinates;
+                        var latLng = new google.maps.LatLng(coords[0],coords[1]);
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            title: place.title,
+                            map: map
+                        });
+                      //  marker.setMap(map);
+                    }
+                });
+                
+            } 
+            
+            $(document).ready(function() {
+               
+                $('#countdown_dashboard').countDown({
+                    targetDate: {
+                        'day': 		12,
+                        'month': 	8,
+                        'year': 	2014,
+                        'hour': 	0,
+                        'min': 		0,
+                        'sec': 		0					
+                    }//,
+                    //omitWeeks: false
+                });
+   
+              google.maps.event.addDomListener(window, 'load', initialize);             
+            });
+        </script> 
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNoi1OiLgZh3et2pgEE_uZPmhw_xiifjw&sensor=true"></script>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+
+        <style type="text/css" media="screen">
+            iframe { vertical-align: top; }
+        </style>
+
+    </head>
+
+    <body>
+        <!-- Countdown dashboard start --> 
+        <div id="countdown_dashboard"> 
+            <div class="dash weeks_dash"> 
+                <span class="dash_title">weeks</span> 
+                <div class="digit"></div> 
+                <div class="digit"></div> 
+            </div> 
+            <div class="dash days_dash"> 
+                <span class="dash_title">days</span> 
+                <div class="digit"></div> 
+                <div class="digit"></div> 
+            </div> 
+            <div class="dash hours_dash"> 
+                <span class="dash_title">hours</span> 
+                <div class="digit"></div> 
+                <div class="digit"></div> 
+            </div> 
+            <div class="dash minutes_dash"> 
+                <span class="dash_title">minutes</span> 
+                <div class="digit"></div> 
+                <div class="digit"></div> 
+            </div> 
+
+            <div class="dash seconds_dash"> 
+                <span class="dash_title">seconds</span> 
+                <div class="digit"></div> 
+                <div class="digit"></div> 
+            </div> 
+
+        </div>
+        
+        <div id="font">
+            until my adventure to South America!<br />
+            <div class="text"><span class="little">I am going to South America for the Brazil World Cup 2014, are you? Share it with your friends! Hope to see you there and cheer for the best players around the globe!</span></div>
+            <div class="text"><a href="http://twitter.com/share" class="twitter-share-button" data-text="I am going to South America for the Brazil World Cup 2014, are you?" data-via="gguo5" data-hashtags="GoToBrazil2014" data-count="horizontal">Tweet</a><fb:like href="http://guangzeguo.com/travel" layout="button_count" show_faces="false" width="90"></fb:like></div>
+            <div style="clear:both;"></div>
+            <div class="text"><span class="little" style="font-size: 8pt;">Created by <a href="http://guangzeguo.com" alt="">Guangze</a></span></div>
+        </div>
+        <div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>
+
+    </body>
+</html>
