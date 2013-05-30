@@ -10,73 +10,63 @@
 
         <script language="Javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
         <script language="Javascript" type="text/javascript" src="js/countdown.js"></script> 	
-        <script language="javascript" type="text/javascript"> 
-            var map;
-            function initialize() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(58, 16),
-                    disableDefaultUI: true,
-                    zoom: 5,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                map = new google.maps.Map(document.getElementById("map_canvas"),
-                mapOptions);
-                
-                $.getJSON("foo.json", function(results) {
-                    for (var i = 0; i < results.features.length; i++) {
-                        var place = results.features[i];
-                        var coords = place.coordinates;
-                        var latLng = new google.maps.LatLng(coords[0],coords[1]);
-                        var marker = new google.maps.Marker({
-                            position: latLng,
-                            title: place.title,
-                            map: map
-                        });
-                        attachSecretMessage(marker, i);
-                    }
-                });
-                            
-            } 
-            
-            // The five markers show a secret message when clicked
-            // but that message is not within the marker's instance data
-            function attachSecretMessage(marker, num) {
-                var message = ['This', 'is', 'the'];
-                var infowindow = new google.maps.InfoWindow({
-                    content: num+message[num]
-                });
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.open(marker.get('map'), marker);
-                });
-            }
-            
-            $(document).ready(function() {
-               
-                $('#countdown_dashboard').countDown({
-                    targetDate: {
-                        'day': 		12,
-                        'month': 	8,
-                        'year': 	2014,
-                        'hour': 	0,
-                        'min': 		0,
-                        'sec': 		0					
-                    }//,
-                    //omitWeeks: false
-                });
-   
-                google.maps.event.addDomListener(window, 'load', initialize);             
-            });
-        </script> 
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNoi1OiLgZh3et2pgEE_uZPmhw_xiifjw&sensor=true"></script>
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNoi1OiLgZh3et2pgEE_uZPmhw_xiifjw&sensor=true"></script>
+        <script type="text/javascript">
 
-        <style type="text/css" media="screen">
-            iframe { vertical-align: top; }
-        </style>
+            var map;
+            var infoWindow;
+            var message = ['This', 'is', 'the', 'secret', 'message'];
+      
+            function initialize() {
+                var mapDiv = document.getElementById('map-canvas');
+                map = new google.maps.Map(mapDiv, {
+                    center: new google.maps.LatLng(37.4419, -122.1419),
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+      
+                infoWindow = new google.maps.InfoWindow();
+      
+                google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
+                google.maps.event.addListener(map, 'click', function() {
+                    infoWindow.close();
+                });
+            }
+      
+            function addMarkers() {
+                var bounds = map.getBounds();
+                var southWest = bounds.getSouthWest();
+                var northEast = bounds.getNorthEast();
+                var lngSpan = northEast.lng() - southWest.lng();
+                var latSpan = northEast.lat() - southWest.lat();
+      
+                function createMarker(map, position, number) {
+                    var marker = new google.maps.Marker({
+                        position: position,
+                        map: map
+                    });
+      
+                    google.maps.event.addListener(marker, 'click', function() {
+                        var myHtml = '<strong>#' + number + '</strong><br/>' + message[number - 1];
+                        infoWindow.setContent(myHtml);
+                        infoWindow.open(map, marker);
+                    });
+                }
+      
+                for (var i = 1; i <= 5; i++) {
+                    var latLng = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(),
+                    southWest.lng() + lngSpan * Math.random());
+      
+                    createMarker(map, latLng, i);
+                }
+            }
+      
 
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
     </head>
-
     <body>
         <!-- Countdown dashboard start --> 
         <div id="countdown_dashboard"> 
@@ -116,7 +106,6 @@
             <div style="clear:both;"></div>
             <div class="text"><span class="little" style="font-size: 8pt;">Created by <a href="http://guangzeguo.com" alt="">Guangze</a></span></div>
         </div>
-        <div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>
-
+        <div id="map-canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>
     </body>
 </html>
