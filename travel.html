@@ -16,7 +16,7 @@
         <script type="text/javascript">
             var map;
             var infoWindow;
-            
+
             function initialize() {
                 var mapDiv = document.getElementById('map-canvas');
                 var mapOptions = {
@@ -36,6 +36,15 @@
             }
       
             function addMarkers() {
+ 
+                $.getJSON("places.json", function(results) {
+                    for (var i = 0; i < results.features.length; i++) {
+                        var place = results.features[i];
+                        var coords = place.coordinates;
+                        var latLng = new google.maps.LatLng(coords[0],coords[1]);
+                        createMarker(map, latLng, place.description);   
+                    }
+                });
                 
                 function createMarker(map, position, desc) {
                     var marker = new google.maps.Marker({
@@ -47,16 +56,8 @@
                         infoWindow.open(map, marker);
                     });
                 }
-      
-                $.getJSON("foo.json", function(results) {
-                    for (var i = 0; i < results.features.length; i++) {
-                        var place = results.features[i];
-                        var coords = place.coordinates;
-                        var latLng = new google.maps.LatLng(coords[0],coords[1]);
-                        createMarker(map, latLng, place.description);   
-                    }
-                });
             }
+       
             google.maps.event.addDomListener(window, 'load', initialize);
             
             $(document).ready(function() {
