@@ -10,6 +10,7 @@
 
         <script language="Javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
         <script language="Javascript" type="text/javascript" src="js/countdown.js"></script> 	
+        <script type="text/javascript" src="js/utility.js"></script>
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNoi1OiLgZh3et2pgEE_uZPmhw_xiifjw&sensor=true"></script>
@@ -75,8 +76,11 @@
         </script>
     </head>
     <body>
+        <div id="travel_map_page" class="page">
+	
+
         <!-- Countdown dashboard start --> 
-        <div id="countdown_dashboard"> 
+        <div id="countdown_dashboard" class="toggle_class"> 
             <div class="dash weeks_dash"> 
                 <span class="dash_title">weeks</span> 
                 <div class="digit"></div> 
@@ -106,7 +110,7 @@
 
         </div>
 
-        <div id="font">
+        <div id="font" class="toggle_class">
             until my adventure to South America!<br />
             <div class="text"><span class="little">I am going to South America for the Brazil World Cup 2014, are you? Share it with your friends! Hope to see you there and cheer for the best players around the globe!</span></div>
             <div class="text"><a href="http://twitter.com/share" class="twitter-share-button" data-text="I am going to South America for the Brazil World Cup 2014, are you?" data-via="gguo5" data-hashtags="GoToBrazil2014" data-count="horizontal">Tweet</a><fb:like href="http://guangzeguo.com/travel" layout="button_count" show_faces="false" width="90"></fb:like></div>
@@ -114,5 +118,43 @@
             <div class="text"><span class="little" style="font-size: 8pt;">Created by <a href="http://guangzeguo.com" alt="">Guangze</a></span></div>
         </div>
         <div id="map-canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>
+
+
+        <div class="sidesx toggle_class" style="display: block;">
+            <div id="logo"><a href="http://www.adplog.com" title="ADPlog"><img src="http://media.adplog.com/img/ADPlog_logo.png" alt="ADPlog"></a></div>
+            <ul class="nav">   
+
+                <ul class="nav menu">
+                    <li><a href="http://guangzeguo.com/" title="GUANGZEGUO.COM">Home</a></li><li><a href="http://guangzeguo.com/blogs/" title="Blogs">Blogs</a></li><li><a href="http://guangzeguo.com/about-me/" title="About">About</a></li><li><a href="http://guangzeguo.com/travel" class="selected">Travel</a></li></li>
+                </ul>
+
+            </ul>
+            <div id="social_side">
+                <a target="_blank" href="https://www.facebook.com/grant7" id="ss-fb" title="Follow on Facebook"></a>
+                <a target="_blank" href="https://twitter.com/gguo5" id="ss-tw" title="Follow on Twitter"></a>    
+            </div>              
+        </div>
+
+</div><!-- end travel map page --> 
+        <footer class="toggle_class">
+            <span>Copyright &copy; 2013 <a href="http://guangzeguo.com/" title="GUANGZEGUO.COM">GUANGZEGUO.COM</a></span> 
+
+
+
+            <a href="http://guangzeguo.com/" title="GUANGZEGUO.COM">Home</a>
+            | 
+            <a href="http://guangzeguo.com/about-me/" title="About">About</a>
+            | 
+            <a href="http://guangzeguo.com/blogs/" title="Blogs">Blogs</a>
+
+
+        </footer>  
+
+        <div id="button_container">
+            <div id="button_toggle" class="show_b"></div>
+            <!--  <a href="javascript:void(0)" rel="nofollow" id="button_back"></a>
+              <a href="javascript:void(0)" rel="nofollow" id="button_next"></a>
+              <a href="javascript:void(0)" rel="nofollow" id="button_play_pause" class="on_play">play/pause</a>  -->
+        </div>
     </body>
 </html>

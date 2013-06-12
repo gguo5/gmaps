@@ -1,105 +1,110 @@
+body {
+    overflow-y: scroll;
+}
+
+
 /* CSS FOR DEWEY BEACH SITE */
 
 #countdown_dashboard {
-	height: 110px;
-	z-index: 100;
-	position: absolute;
-	right: 50px;
-	top: 50px;
+    height: 110px;
+    z-index: 100;
+    position: absolute;
+    right: 50px;
+    top: 50px;
 }
 
 div#map_canvas {  
-	position: absolute; 
-	top: 0; 
-	bottom: 0; 
-	left: 0; 
-	right: 0; 
-	z-index: 0;
-	}
-	
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: 0;
+}
+
 iframe { vertical-align: top; }
 
 .dash {
-	width: 110px;
-	height: 114px;
-	background: transparent url('http://wadehammes.com/dewey-beach/dash.png') 0 0 no-repeat;
-	float: left;
-	margin-left: 20px;
-	position: relative;
+    width: 110px;
+    height: 114px;
+    background: transparent url('http://wadehammes.com/dewey-beach/dash.png') 0 0 no-repeat;
+    float: left;
+    margin-left: 20px;
+    position: relative;
 }
 
 .dash .digit {
-	font-size: 74px;
-	font-weight: bold;
-	float: left;
-	width: 55px;
-	text-align: center;
-	/*font-family: 'Helvetic Neue', Helvetica, Geneva, arial, sans-serif;*/
-	font-family: 'Share', cursive;
-	color: #111;
-	position: relative;
-	text-shadow: 0px 2px 2px #999;
-	margin:8px 0 0 0;
+    font-size: 74px;
+    font-weight: bold;
+    float: left;
+    width: 55px;
+    text-align: center;
+    /*font-family: 'Helvetic Neue', Helvetica, Geneva, arial, sans-serif;*/
+    font-family: 'Share', cursive;
+    color: #111;
+    position: relative;
+    text-shadow: 0px 2px 2px #999;
+    margin:8px 0 0 0;
 }
 
 .dash_title {
-	position: absolute;
-	display: block;
-	bottom: 0px;
-	right: 6px;
-	font-size: 9pt;
-	color: #111;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-family: 'Helvetic Neue', Helvetica, Geneva, arial, sans-serif;
-	text-shadow: 0px 1px 1px #5e89a6;
+    position: absolute;
+    display: block;
+    bottom: 0px;
+    right: 6px;
+    font-size: 9pt;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Helvetic Neue', Helvetica, Geneva, arial, sans-serif;
+    text-shadow: 0px 1px 1px #5e89a6;
 }
 
 #font {
-	z-index: 100;
-	position: absolute;
-	right: 50px;
-	top:175px;
-	font-family: 'Share', cursive;
-	font-size: 46px;
-	text-shadow: 0px 2px 2px #5e89a6;
-	width: 525px;
-	text-align: right;
-	color: #111;
-	}
-	
+    z-index: 100;
+    position: absolute;
+    right: 50px;
+    top:175px;
+    font-family: 'Share', cursive;
+    font-size: 46px;
+    text-shadow: 0px 2px 2px #5e89a6;
+    width: 525px;
+    text-align: right;
+    color: #111;
+}
+
 .text { 
-	float: right; 
-	margin-top: 15px; 
-	width: 525px;
-	}
-	
+    float: right; 
+    margin-top: 15px; 
+    width: 525px;
+}
+
 .little {
-	font-size: 11pt;
-	font-family: 'Helvetica Neue' Helvetica, arial, sans-serif;
-	text-shadow: none;
-	color: #2e4352;
-	text-shadow: 0px 1px 1px #77a0bc;
-	line-height: 1.4em;
-	}
-	
+    font-size: 11pt;
+    font-family: 'Helvetica Neue' Helvetica, arial, sans-serif;
+    text-shadow: none;
+    color: #2e4352;
+    text-shadow: 0px 1px 1px #77a0bc;
+    line-height: 1.4em;
+}
+
 .little a {
-	text-decoration: none;
-	color: #2e4352;
-	text-shadow: 0px 1px 1px #77a0bc;
-	}
-	
+    text-decoration: none;
+    color: #2e4352;
+    text-shadow: 0px 1px 1px #77a0bc;
+}
+
 .little a:hover {
-	color: #212121;
-	}
-	
+    color: #212121;
+}
+
 #wh-app {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 4000;
-	}
-	
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4000;
+}
+
 #wh-app a {
     background:transparent url("http://www.wadehammes.com/new/images/wadesprite.jpg") 0 0 no-repeat;
     display:block;
@@ -107,9 +112,9 @@ iframe { vertical-align: top; }
     width:59px;
     text-indent:-9999px;
     overflow:hidden;
-	-webkit-transition-property: background;
-	-webkit-transition-duration: .5s;
-	-webkit-transition-timing: ease-out;
+    -webkit-transition-property: background;
+    -webkit-transition-duration: .5s;
+    -webkit-transition-timing: ease-out;
 }
 
 #wh-app a:hover {
@@ -120,3 +125,140 @@ iframe { vertical-align: top; }
     text-indent:-9999px;
     overflow:hidden;
 }
+
+
+/* footer */
+footer{
+    position:fixed;
+    bottom:0px; left:0px;
+    padding:0px 20px;
+    height:32px; line-height:32px; width:100%;
+    font-size:10px; color:#666; text-transform:uppercase;
+    background: url(../img/bgfooter.png) repeat;
+    z-index:3
+}
+footer span{ margin-right:20px }
+footer a:link, footer a:visited { color: #666; text-decoration: none; }
+footer a:hover, footer a:active{ color: #666;	text-decoration: none; }
+
+
+/* style button */
+#button_container{
+    display:block;
+    position:fixed;
+    bottom:1px; right:63px; /*52+27*/
+    height:30px; width:180px;
+    z-index:4
+}
+#button_toggle, #button_back, #button_next, #button_pause, #button_play, #button_play_pause{
+    position:absolute;
+    display:block;
+    height:30px; width:30px;
+    color:#FFF; text-decoration:none;
+    background:url(../img/spritecontent.png) no-repeat;
+    cursor:pointer;
+}
+
+#button_toggle{ right:0px; background-position:0px -30px; }
+#button_toggle.active{ background-position:-150px -30px; }	
+
+#button_next{  right:32px; background-position:-60px -30px; }
+#button_next:hover{ background-position:-210px -30px; }
+
+#button_back{  right:64px; background-position:-30px -30px; }
+#button_back:hover{ background-position:-180px -30px; }
+
+
+
+/*#button_pause{  right:32px; background-position:-90px -30px; }
+#button_pause.active{ background-position:-240px -30px; }
+
+#button_play{  right:64px; background-position:-120px -30px; }	
+#button_play.active{ background-position:-270px -30px; }*/
+
+
+#button_play_pause{  right:96px; text-indent:-9999px }	
+#button_play_pause.on_play{ background-position:-90px -30px; }
+#button_play_pause.on_play:hover{background-position:-240px -30px; }
+
+#button_play_pause.on_pause{background-position:-120px -30px;  }
+#button_play_pause.on_pause:hover{ background-position:-270px -30px; }
+
+
+/* html5 reset */
+.clearfloat{clear:both;height:0;font-size:1px;line-height:0px;}
+header, section, footer, aside, article, figure{display:block;}
+
+
+
+/* sidebar sx*/
+.sidesx{
+    position:absolute;
+    width:130px; height:560px;
+    padding:15px 10px 15px 32px; margin:0px;
+    top:20px; left:30px;
+    background:url(../img/sidesx.png) no-repeat;
+    z-index:3;
+}
+
+/*language*/
+#language{
+    display:block;
+    text-align:right;
+    padding:0px 10px;
+    font-size:11px;
+}
+#language a:link, #language a:visited { color: #999; text-decoration: underline; }
+#language a:hover, #language a:active{ color: #999;	text-decoration: none; }
+#language a#selected{ cursor:default; color:#000; text-decoration:none }	
+
+/* logo */
+.sidesx #logo{ margin:10px 45px; }
+
+/* nav */
+.nav {
+    display:block;
+    width:130px; height:auto;
+    margin:5px 0px; padding:0px;
+    text-transform:uppercase; font-size:14px;
+    list-style:none;
+    z-index:3;
+}
+.menu_small .nav{ display:none }
+.nav li {
+    display:block;
+    margin:0px;
+    z-index:4; 
+}
+.nav a {
+    display:block;
+    height:30px; width:auto;
+    padding:0px 6px; margin:0px;
+    line-height:30px; text-decoration:none;  text-align:center;
+}
+.nav a:link, .nav a:visited { color: #999999; text-decoration: none; }
+.nav a.selected_hover, .nav a:hover, .nav a:active{ color: #333;	text-decoration: none; }
+.nav a.selected{ color:#333; font-weight:bold; cursor:default	}	
+
+/* social head */
+#social_side{
+    float:right;
+    width:114px; height:auto;
+    margin:0px 8px 8px 8px;
+}
+#social_side a{
+    float:left;
+    height:32px; width:32px;
+    margin:2px 44px; padding:0px;
+    background:#0F0
+}
+
+a#ss-fb:link, a#ss-fb:visited{ background:url(../img/spritecontent.png) -116px 0px }
+a#ss-fb:hover, a#ss-fb:active{ background:url(../img/spritecontent.png) 0px 0px}
+
+a#ss-tw:link, a#ss-tw:visited{ background:url(../img/spritecontent.png) -148px 0px }
+a#ss-tw:hover, a#ss-tw:active{ background:url(../img/spritecontent.png) -32px 0px }
+
+#social_side a#ss-yt{ width:52px; margin:2px 34px; }
+a#ss-yt:link, a#ss-yt:visited{  background:url(../img/spritecontent.png) -180px 0px }
+a#ss-yt:hover, a#ss-yt:active{ background:url(../img/spritecontent.png) -64px 0px }	
