@@ -1,0 +1,12 @@
+/* 
+    Document   : todo
+    Created on : 18/06/2013, 10:07:17 AM
+    Author     : gguo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
