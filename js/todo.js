@@ -6,10 +6,10 @@
 
 function TodoCtrl($scope) {
   $scope.todos = [
-    {text:'learn angular', done:false},
-    {text:'build an angular app', done:false},
-    {text:'skydiving', done:true},
-    {text:'scuba diving', done:true}];
+    {text:'Photo with Del Piero', done:true},
+    {text:'CouchSurfing', done:false},
+    {text:'Skydiving', done:true},
+    {text:'Adopt an orphan', done:false}];
 
   $scope.addTodo = function() {
     $scope.todos.push({text:$scope.todoText, done:false});
