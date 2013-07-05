@@ -8,8 +8,10 @@
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />	
         <link href='http://fonts.googleapis.com/css?family=Share:700' rel='stylesheet' type='text/css'/>
 
-        <script language="Javascript" type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-        <script language="Javascript" type="text/javascript" src="js/countdown.js"></script> 	
+        <link href="jcountdown/jcountdown.css" rel="stylesheet" type="text/css"/>
+        <script src="jquery/jquery-1.8.2.min.js"></script>
+        <script src="jcountdown/jquery.jcountdown.min.js"></script> 
+        
         <script type="text/javascript" src="js/utility.js"></script>
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
@@ -21,9 +23,9 @@
             function initialize() {
                 var mapDiv = document.getElementById('map-canvas');
                 var mapOptions = {
-                    center: new google.maps.LatLng(58, 16),
+                    center: new google.maps.LatLng(-25, 150),
                     disableDefaultUI: true,
-                    zoom: 5,
+                    zoom: 4,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 map = new google.maps.Map(mapDiv,mapOptions);
@@ -61,81 +63,105 @@
        
             google.maps.event.addDomListener(window, 'load', initialize);
             
-            $(document).ready(function() {
+            /*    $(document).ready(function() {
                 $('#countdown_dashboard').countDown({
                     targetDate: {
-                        'day': 		12,
-                        'month': 	8,
-                        'year': 	2014,
+                        'day': 		21,
+                        'month': 	12,
+                        'year': 	2013,
                         'hour': 	0,
                         'min': 		0,
                         'sec': 		0					
                     }//,omitWeeks: false
                 });           
+            });*/
+
+            $(document).ready(function(){
+                $("#DIV_TO_PLACE_COUNTDOWN").jCountdown({
+                    timeText:"2013/12/21 18:00:00",
+                    timeZone:10,
+                    style:"flip",
+                    color:"black",
+                    width:0,
+                    textGroupSpace:15,
+                    textSpace:0,
+                    reflection:true,
+                    reflectionOpacity:10,
+                    reflectionBlur:0,
+                    dayTextNumber:3,
+                    displayDay:true,
+                    displayHour:true,
+                    displayMinute:true,
+                    displaySecond:true,
+                    displayLabel:true,
+                    onFinish:function(){
+                        alert("Go Cambodia!!");
+                    }
+                });
             });
         </script>
     </head>
     <body>
         <div id="travel_map_page" class="page">
-	
 
-        <!-- Countdown dashboard start --> 
-        <div id="countdown_dashboard" class="toggle_class"> 
-            <div class="dash weeks_dash"> 
-                <span class="dash_title">weeks</span> 
-                <div class="digit"></div> 
-                <div class="digit"></div> 
-            </div> 
-            <div class="dash days_dash"> 
-                <span class="dash_title">days</span> 
-                <div class="digit"></div> 
-                <div class="digit"></div> 
-            </div> 
-            <div class="dash hours_dash"> 
-                <span class="dash_title">hours</span> 
-                <div class="digit"></div> 
-                <div class="digit"></div> 
-            </div> 
-            <div class="dash minutes_dash"> 
-                <span class="dash_title">minutes</span> 
-                <div class="digit"></div> 
-                <div class="digit"></div> 
-            </div> 
+            <div id="DIV_TO_PLACE_COUNTDOWN" class="toggle_class"></div>
+            <!-- Countdown dashboard start 
+            <div id="countdown_dashboard" class="toggle_class"> 
+                <div class="dash weeks_dash"> 
+                    <span class="dash_title">weeks</span> 
+                    <div class="digit"></div> 
+                    <div class="digit"></div> 
+                </div> 
+                <div class="dash days_dash"> 
+                    <span class="dash_title">days</span> 
+                    <div class="digit"></div> 
+                    <div class="digit"></div> 
+                </div> 
+                <div class="dash hours_dash"> 
+                    <span class="dash_title">hours</span> 
+                    <div class="digit"></div> 
+                    <div class="digit"></div> 
+                </div> 
+                <div class="dash minutes_dash"> 
+                    <span class="dash_title">minutes</span> 
+                    <div class="digit"></div> 
+                    <div class="digit"></div> 
+                </div> 
+    
+                <div class="dash seconds_dash"> 
+                    <span class="dash_title">seconds</span> 
+                    <div class="digit"></div> 
+                    <div class="digit"></div> 
+                </div> 
+    
+            </div> --> 
 
-            <div class="dash seconds_dash"> 
-                <span class="dash_title">seconds</span> 
-                <div class="digit"></div> 
-                <div class="digit"></div> 
-            </div> 
-
-        </div>
-
-        <div id="font" class="toggle_class">
-            until my adventure to South America!<br />
-            <div class="text"><span class="little">I am going to South America for the Brazil World Cup 2014, are you? Share it with your friends! Hope to see you there and cheer for the best players around the globe!</span></div>
-            <div class="text"><a href="http://twitter.com/share" class="twitter-share-button" data-text="I am going to South America for the Brazil World Cup 2014, are you?" data-via="gguo5" data-hashtags="GoToBrazil2014" data-count="horizontal">Tweet</a><fb:like href="http://guangzeguo.com/travel" layout="button_count" show_faces="false" width="90"></fb:like></div>
-            <div style="clear:both;"></div>
-            <div class="text"><span class="little" style="font-size: 8pt;">Created by <a href="http://guangzeguo.com" alt="">Guangze</a></span></div>
-        </div>
-        <div id="map-canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>
+            <div id="font" class="toggle_class">
+                until our next adventure to Cambodia & Vietnam!<br />
+                <div class="text"><span class="little">We are going to Cambodia & Vietnam during Christmas holiday! Share it with your friends! Hope to see you there as well! Angkor Wat!!:P</span></div>
+                <div class="text"><a href="http://twitter.com/share" class="twitter-share-button" data-text="We are going to Cambodia & Vietnam during Christmas holiday! Angkor Wat here we come!" data-via="gguo5" data-hashtags="Cambodia&Vietnam" data-count="horizontal">Tweet</a><fb:like href="http://guangzeguo.com/travel" layout="button_count" show_faces="false" width="90"></fb:like></div>
+                <div style="clear:both;"></div>
+                <div class="text"><span class="little" style="font-size: 8pt;">Created by <a href="http://guangzeguo.com" alt="">Guangze</a></span></div>
+            </div>
+            <div id="map-canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>
 
 
-        <div class="sidesx toggle_class" style="display: block;">
-            <div id="logo"><a href="http://www.adplog.com" title="ADPlog"><img src="http://media.adplog.com/img/ADPlog_logo.png" alt="ADPlog"></a></div>
-            <ul class="nav">   
+            <div class="sidesx toggle_class" style="display: block;">
+                <!--<div id="logo"><a href="http://www.adplog.com" title="ADPlog"><img src="http://media.adplog.com/img/ADPlog_logo.png" alt="ADPlog"></a></div> -->
+                <ul class="nav">   
 
-                <ul class="nav menu">
-                    <li><a href="http://guangzeguo.com/" title="GUANGZEGUO.COM">Home</a></li><li><a href="http://guangzeguo.com/blogs/" title="Blogs">Blogs</a></li><li><a href="http://guangzeguo.com/about-me/" title="About">About</a></li><li><a href="http://guangzeguo.com/travel" class="selected">Travel</a></li></li>
+                    <ul class="nav menu">
+                        <li><a href="http://guangzeguo.com/" title="GUANGZEGUO.COM">Home</a></li><li><a href="http://guangzeguo.com/blogs/" title="Blogs">Blogs</a></li><li><a href="http://guangzeguo.com/about-me/" title="About">About</a></li><li><a href="http://guangzeguo.com/travel" class="selected">Travel</a></li></li>
+                    </ul>
+
                 </ul>
+                <div id="social_side">
+                    <a target="_blank" href="https://www.facebook.com/grant7" id="ss-fb" title="Follow on Facebook"></a>
+                    <a target="_blank" href="https://twitter.com/gguo5" id="ss-tw" title="Follow on Twitter"></a>    
+                </div>              
+            </div>
 
-            </ul>
-            <div id="social_side">
-                <a target="_blank" href="https://www.facebook.com/grant7" id="ss-fb" title="Follow on Facebook"></a>
-                <a target="_blank" href="https://twitter.com/gguo5" id="ss-tw" title="Follow on Twitter"></a>    
-            </div>              
-        </div>
-
-</div><!-- end travel map page --> 
+        </div><!-- end travel map page --> 
         <footer class="toggle_class">
             <span>Copyright &copy; 2013 <a href="http://guangzeguo.com/" title="GUANGZEGUO.COM">GUANGZEGUO.COM</a></span> 
 
